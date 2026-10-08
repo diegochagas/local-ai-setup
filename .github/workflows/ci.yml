@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: scripts/check
+      # what a run would do, with nothing to install: ComfyUI is skipped
+      # without COMFYUI_DIR, Ollama only prints its installer
+      - run: ./setup.sh --dry-run

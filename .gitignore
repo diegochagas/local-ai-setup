@@ -1,0 +1,4 @@
+config.sh
+*.log
+logs/
+__pycache__/

@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2034
+
+########################################
+# Local AI Setup configuration
+#
+# Copy to config.sh and edit. linux-mint-setup passes the same
+# variables from its own config.sh when it runs this setup.
+########################################
+
+#
+# ComfyUI, the local AI models behind the AI tools of GIMP
+# (gimp-setup), GIMPhoto and comic-skills
+#
+# Installed by the ComfyUI steps (steps/comfyui/), as a `comfyui`
+# systemd user service that GIMP and GIMPhoto start when they open
+# and stop when they close; they find it through that service, so
+# nothing else needs these values. COMFYUI_DIR is where
+# ComfyUI, its Python environment and its models are installed,
+# e.g. a directory on a larger data disk: the models are tens of
+# GB and it wants about 45 GB free. Needs an NVIDIA GPU with its
+# driver installed (a 6 GB card is enough; what does not fit is
+# kept in RAM).
+#
+# Leave COMFYUI_DIR empty to skip ComfyUI entirely.
+#
+COMFYUI_DIR=""
+
+#
+# Which model sets to download, comma separated:
+#
+#   qwen  - Qwen-Image-Edit-2511, ~22 GB. Best quality;
+#           what comic-skills uses to erase text over art.
+#   klein - FLUX.2 klein 4B, ~12 GB. Faster, lower quality;
+#           the only one that generates images from text.
+#   sam   - SAM 2.1 large, ~450 MB. GIMP's Select > Object
+#           Selection (AI) / Subject (AI).
+#   birefnet - BiRefNet, ~450 MB. Finds the main subject of a
+#           picture: GIMPhoto's Select > Subject.
+#   lama  - Big-LaMa, ~200 MB. Fills in what GIMPhoto's Remove
+#           tool removes.
+#
+# All five by default. Leave empty to install ComfyUI without
+# any model.
+#
+COMFYUI_MODEL_SETS="qwen,klein,sam,birefnet,lama"
+
+#
+# Port the ComfyUI user service listens on (127.0.0.1 only).
+#
+COMFYUI_PORT="8188"
+
+#
+# Ollama models directory
+#
+# Where Ollama stores its models (tens of GB), e.g. a
+# directory on a larger data disk. It is created and
+# owned by the ollama service user.
+#
+# Leave empty to use Ollama's default location.
+#
+OLLAMA_MODELS_DIR=""
+
+#
+# Installer URLs
+#
+# Override if an upstream project moves its install script or
+# PyTorch build.
+#
+OLLAMA_INSTALL_URL="https://ollama.com/install.sh"
+COMFYUI_TORCH_INDEX_URL="https://download.pytorch.org/whl/cu128"

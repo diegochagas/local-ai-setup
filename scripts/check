@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# The one gate: what CI runs. Lints the scripts, checks the model table
+# and runs the unit tests. Installing is not part of it (tens of GB):
+# ./setup.sh --dry-run shows what a run would do.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+echo "== shellcheck"
+shellcheck -x setup.sh scripts/check
+
+echo "== models.tsv"
+# set, directory, 64-hex SHA-256, https URL, optional file name
+awk -F'\t' '!/^#/ && NF {
+    if (NF < 4 || NF > 5 || $3 !~ /^[0-9a-f]{64}$/ || $4 !~ /^https:\/\//) {
+        printf "steps/comfyui/models.tsv:%d: want set<TAB>dir<TAB>sha256<TAB>url[<TAB>name]\n", NR
+        bad = 1
+    }
+} END { exit bad }' steps/comfyui/models.tsv
+
+echo "== tests"
+python3 -m unittest discover -s tests -q
+
+echo "check: OK"
