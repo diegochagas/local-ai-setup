@@ -54,6 +54,11 @@ CPU.
 `config.sh` (copied from [`config.sh.example`](config.sh.example)), or the
 same variables in the environment, as linux-mint-setup passes them:
 
+This configuration has no credentials. Choose visible paths on the local data
+volume for models—for example, `/mnt/data/ComfyUI` and `/mnt/data/ollama`—not a
+credentials-only directory. `config.sh` remains local because those paths are
+specific to the machine.
+
 | Variable | Default | What |
 | --- | --- | --- |
 | `COMFYUI_DIR` | empty: ComfyUI skipped | Where ComfyUI, its Python environment and its models go, e.g. a larger data disk |

@@ -7,6 +7,10 @@
 #
 # Copy to config.sh and edit. linux-mint-setup passes the same
 # variables from its own config.sh when it runs this setup.
+# This configuration has no credentials: choose visible data-volume
+# paths for models (for example /mnt/data/ComfyUI), rather than a
+# credentials-only backup folder. The file stays local because its
+# paths describe one machine.
 ########################################
 
 #
