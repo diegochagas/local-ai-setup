@@ -37,15 +37,18 @@ COMFYUI_DIR=""
 #   qwen  - Qwen-Image-Edit-2511, ~22 GB. Best quality;
 #           what comic-skills uses to erase text over art.
 #   klein - FLUX.2 klein 4B, ~12 GB. Faster, lower quality;
-#           the only one that generates images from text.
+#           also generates images from text.
 #   sam   - SAM 2.1 large, ~450 MB. GIMP's Select > Object
 #           Selection (AI) / Subject (AI).
 #   birefnet - BiRefNet, ~450 MB. Finds the main subject of a
 #           picture: GIMPhoto's Select > Subject.
 #   lama  - Big-LaMa, ~200 MB. Fills in what GIMPhoto's Remove
 #           tool removes.
+#   anima - Anima Turbo, ~5.4 GB. Anime and manga from text.
+#           Non-commercial model license (its images can be
+#           used commercially), so not in the default list.
 #
-# All five by default. Leave empty to install ComfyUI without
+# All but anima by default. Leave empty to install ComfyUI without
 # any model.
 #
 COMFYUI_MODEL_SETS="qwen,klein,sam,birefnet,lama"

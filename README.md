@@ -7,8 +7,8 @@ Installs the local AI models my applications share, on one machine, with no
 accounts, credits or limits:
 
 - **[ComfyUI](https://github.com/comfyanonymous/ComfyUI)** with open-weight
-  image models (Qwen-Image-Edit, FLUX.2 klein, SAM 2.1, BiRefNet, LaMa), as
-  a `comfyui` systemd user service. Used by
+  image models (Qwen-Image-Edit, FLUX.2 klein, SAM 2.1, BiRefNet, LaMa and
+  the opt-in Anima), as a `comfyui` systemd user service. Used by
   [GIMPhoto](https://github.com/diegochagas/gimphoto),
   [gimp-setup](https://github.com/diegochagas/gimp-setup)'s AI plug-ins,
   [comic-skills](https://github.com/diegochagas/comic-skills) and
@@ -97,14 +97,19 @@ specific to the machine.
   | Set | Models | Size | Good at |
   | --- | --- | --- | --- |
   | `qwen` | Qwen-Image-Edit-2511 (4-bit GGUF) + Qwen2.5-VL text encoder, VAE and the 4-step Lightning LoRA | ~22 GB | Best quality: instruction edits that keep characters and text consistent. ~100 s per 1 MP image on a 6 GB GPU |
-  | `klein` | FLUX.2 klein 4B (fp8) + Qwen3-4B text encoder and VAE | ~12 GB | Three times faster (~35 s), lower quality on detailed art. The only one that also generates images from text |
+  | `klein` | FLUX.2 klein 4B (fp8) + Qwen3-4B text encoder and VAE | ~12 GB | Three times faster (~35 s), lower quality on detailed art. Also generates images from text |
   | `sam` | SAM 2.1 large (fp16) | ~450 MB | Segment Anything: Object Selection, ~3 s per selection |
   | `birefnet` | BiRefNet general | ~450 MB | Finds the main subject of a picture: GIMPhoto's Select Subject, a few seconds |
   | `lama` | Big-LaMa | ~200 MB | Fills in what is removed (made for object removal): GIMPhoto's Remove tool, about a second |
+  | `anima` | Anima Turbo v1.1 + Qwen3-0.6B text encoder (shares the Qwen-Image VAE with `qwen`) | ~5.4 GB | Anime and manga from text, with bold inking and screentone: 10 steps, ~18 s per 832×1216 image. Opt-in, see the license note below |
 
-  All five are installed by default (about 35 GB of models plus 8 GB for
-  ComfyUI and PyTorch, and it wants 45 GB free); name only some to save
-  disk. All are Apache 2.0 or MIT, so they can be used commercially.
+  The first five are installed by default (about 35 GB of models plus 8 GB
+  for ComfyUI and PyTorch, and it wants 45 GB free); name only some to save
+  disk. They are Apache 2.0 or MIT, so they can be used commercially.
+  `anima` is opt-in (add it to `COMFYUI_MODEL_SETS`): it is under the
+  CircleStone Labs Non-Commercial License, which forbids commercial use of
+  the model itself (hosting it behind a paid API or inside a paid product)
+  but not of the images it makes.
 - Writes a `comfyui` **systemd user service** on `127.0.0.1:COMFYUI_PORT`
   (8188 by default). It is deliberately **not enabled at boot**: it holds
   GPU memory while it runs. GIMP and GIMPhoto start it when they open and

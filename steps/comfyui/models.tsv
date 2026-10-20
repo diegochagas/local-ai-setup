@@ -27,6 +27,12 @@
 #         removed: GIMPhoto's Remove tool, through
 #         comfyui-inpaint-nodes. Published on GitHub, not Hugging
 #         Face: its SHA-256 was taken from the downloaded file.
+# anima - Anima Turbo v1.1 (CircleStone Labs Non-Commercial
+#         License: the model may not be used commercially, the
+#         images it makes may) + its Qwen3-0.6B text encoder;
+#         shares the Qwen-Image VAE with qwen. ~5.4 GB. Anime and
+#         manga from text: 10 steps, ~18 s per 832x1216 image on a
+#         6 GB GPU. Not in the default sets because of its license.
 qwen	unet	8677bac90627adbbc11efab87b1870e701c4eb3689ee865a3de8ab81b705a723	https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf
 qwen	text_encoders	cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4	https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
 qwen	vae	a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f	https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
@@ -37,3 +43,6 @@ klein	vae	d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5	https
 sam	sam2	278af5296fcc153aa94645a4981e93fe8b7a936a9fa27dbd71e8c850df6d7038	https://huggingface.co/Kijai/sam2-safetensors/resolve/main/sam2.1_hiera_large-fp16.safetensors
 birefnet	BiRefNet	9ab37426bf4de0567af6b5d21b16151357149139362e6e8992021b8ce356a154	https://huggingface.co/ZhengPeng7/BiRefNet/resolve/main/model.safetensors	General.safetensors
 lama	inpaint	344c77bbcb158f17dd143070d1e789f38a66c04202311ae3a258ef66667a9ea9	https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt
+anima	diffusion_models	fba11953276b57edf59d1dc4f1857ac05aa079c56f982b4d7c20298d57d3f7eb	https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-turbo-v1.1.safetensors
+anima	text_encoders	cd2a512003e2f9f3cd3c32a9c3573f820bb28c940f73c57b1ddaa983d9223eba	https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors
+anima	vae	a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f	https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/vae/qwen_image_vae.safetensors
