@@ -246,14 +246,15 @@ install_comfyui_nodes() {
 # Prints "directory<tab>sha256<tab>url<tab>file name" for every
 # model of the sets in COMFYUI_MODEL_SETS (comma or space
 # separated); the file name is the URL's unless models.tsv names
-# one.
+# one. A file two sets share (the Qwen-Image VAE of qwen and
+# anima) is printed once.
 comfyui_selected_models() {
     local sets="${COMFYUI_MODEL_SETS//,/ }"
     local set
 
     for set in $sets; do
         awk -F'\t' -v set="$set" '$1 == set { n = split($4, parts, "/"); print $2 "\t" $3 "\t" $4 "\t" ($5 != "" ? $5 : parts[n]) }' "$COMFYUI_MODELS_FILE"
-    done
+    done | awk -F'\t' '!seen[$1 "/" $4]++'
 }
 
 # Checks a model file against its SHA-256. A verified file
