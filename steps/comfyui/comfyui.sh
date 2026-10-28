@@ -374,6 +374,10 @@ configure_comfyui_models() {
     fi
 }
 
+# --disable-dynamic-vram: dynamic VRAM loading (ComfyUI's default since
+# late 2026) reserves nearly all of a 6 GB GPU for FLUX.2 klein's 7.6 GB
+# text encoder, leaving it no room to run: CUDA out of memory on every
+# klein edit (2026-10-28).
 comfyui_service_unit() {
     cat << EOF
 [Unit]
@@ -381,7 +385,7 @@ Description=ComfyUI (local image generation and editing) on 127.0.0.1:$COMFYUI_P
 
 [Service]
 WorkingDirectory=$COMFYUI_DIR
-ExecStart=$(comfyui_python) main.py --listen 127.0.0.1 --port $COMFYUI_PORT
+ExecStart=$(comfyui_python) main.py --listen 127.0.0.1 --port $COMFYUI_PORT --disable-dynamic-vram
 Restart=on-failure
 
 [Install]

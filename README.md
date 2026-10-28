@@ -122,6 +122,24 @@ systemctl --user stop comfyui      # frees the GPU and the RAM
 systemctl --user status comfyui    # is it running?
 ```
 
+### Editing pictures by chatting, in the terminal
+
+```bash
+./comfyui.sh ~/Pictures/page.png                # Qwen-Image-Edit, ~100 s, follows best
+./comfyui.sh ~/Pictures/page.png --model klein   # FLUX.2 klein, ~45 s per edit
+```
+
+`comfyui.sh` starts the service and opens a chat: type what to change
+("erase all the texts", "make her dress red"), the model edits the picture,
+the result opens in the image viewer, and the next instruction edits that
+result. `/undo`, `/retry` (another seed), `/model`, `/open <file>` and
+`/help` are there too; Ctrl+C during an edit cancels it. Results are saved
+in `~/Downloads/<picture name> edits/`. Leaving (`/quit`, Ctrl+D or Ctrl+C
+at the prompt) stops the service and frees the GPU.
+
+`./comfyui.sh --web` opens ComfyUI's own web UI instead and shows its log;
+Ctrl+C stops the service again (`--no-browser` skips opening the browser).
+
 Scripts can drive it through its HTTP API and start the service themselves,
 as comic-skills does (`INPAINT=qwen COMFYUI_SERVICE=comfyui`).
 
@@ -145,11 +163,13 @@ scripts/check            # shellcheck, the model table, unit tests (CI runs it)
 
 ```
 setup.sh                 the runner: checks, then the steps in order
+comfyui.sh               ComfyUI session: start, chat (or web UI), stop on exit
+image-chat/              the terminal chat: workflows, session, ComfyUI client
 lib/                     logging, dry-run aware commands, steps and summary
 steps/comfyui/           comfyui.sh, the models.tsv it downloads and the
                          custom_nodes/ it installs into ComfyUI
 steps/ollama.sh          Ollama and its models directory
-tests/                   unit tests (the custom nodes)
+tests/                   unit tests (the custom nodes, image-chat)
 ```
 
 ## License
