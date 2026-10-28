@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 echo "== shellcheck"
-shellcheck -x setup.sh scripts/check
+shellcheck -x setup.sh comfyui.sh scripts/check
 
 echo "== models.tsv"
 # set, directory, 64-hex SHA-256, https URL, optional file name
@@ -16,6 +16,9 @@ awk -F'\t' '!/^#/ && NF {
         bad = 1
     }
 } END { exit bad }' steps/comfyui/models.tsv
+
+echo "== image-chat compiles"
+python3 -m py_compile image-chat/*.py
 
 echo "== tests"
 python3 -m unittest discover -s tests -q
