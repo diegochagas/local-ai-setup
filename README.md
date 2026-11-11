@@ -14,10 +14,8 @@ accounts, credits or limits:
   [comic-skills](https://github.com/diegochagas/comic-skills) and
   photo-restore.
 - **[Ollama](https://ollama.com/)**, the local language-model server, as a
-  system service. Used by the Goose agent
-  ([linux-mint-setup](https://github.com/diegochagas/linux-mint-setup)
-  installs and configures it), comic-skills' page descriptions,
-  tvshow-skills' subtitle translation and Digivice.
+  system service. Used by comic-skills' page descriptions,
+  tvshow-skills' subtitle translation, games-extractor and Digivice.
 
 Each application finds these through their services, so they need no
 setting of their own. [linux-mint-setup](https://github.com/diegochagas/linux-mint-setup)
