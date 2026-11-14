@@ -6,7 +6,7 @@ Two edit models from setup.sh's model sets:
   qwen   Qwen-Image-Edit-2511 (GGUF Q4 + Lightning 4-step LoRA), ~100 s
          per edit; follows the instruction best.
 
-Same graphs as comic-skills' restore-photos/scripts/comfy_client.py, which
+Same graphs as image-skills' restore-photos/scripts/comfy_client.py, which
 was tested on both models; the result comes back through PreviewImage, so
 nothing is written in ComfyUI's output folder.
 """

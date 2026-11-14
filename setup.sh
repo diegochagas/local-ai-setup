@@ -4,8 +4,8 @@
 #
 # Installs the local AI models this machine's applications
 # use: ComfyUI with its image models (GIMPhoto, gimp-setup,
-# comic-skills, photo-restore) and Ollama (comic-skills,
-# tvshow-skills, games-extractor, Digivice). The shared helpers live in lib/,
+# image-skills, photo-restore) and Ollama (image-skills,
+# video-skills, games-extractor, Digivice). The shared helpers live in lib/,
 # each step in its own file under steps/, and
 # run_setup_steps below lists them in execution order.
 #

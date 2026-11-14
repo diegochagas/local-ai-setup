@@ -11,11 +11,11 @@ accounts, credits or limits:
   the opt-in Anima), as a `comfyui` systemd user service. Used by
   [GIMPhoto](https://github.com/diegochagas/gimphoto),
   [gimp-setup](https://github.com/diegochagas/gimp-setup)'s AI plug-ins,
-  [comic-skills](https://github.com/diegochagas/comic-skills) and
+  [image-skills](https://github.com/diegochagas/image-skills) and
   photo-restore.
 - **[Ollama](https://ollama.com/)**, the local language-model server, as a
-  system service. Used by comic-skills' page descriptions,
-  tvshow-skills' subtitle translation, games-extractor and Digivice.
+  system service. Used by image-skills' page descriptions,
+  video-skills' subtitle translation, games-extractor and Digivice.
 
 Each application finds these through their services, so they need no
 setting of their own. [linux-mint-setup](https://github.com/diegochagas/linux-mint-setup)
@@ -139,7 +139,7 @@ at the prompt) stops the service and frees the GPU.
 Ctrl+C stops the service again (`--no-browser` skips opening the browser).
 
 Scripts can drive it through its HTTP API and start the service themselves,
-as comic-skills does (`INPAINT=qwen COMFYUI_SERVICE=comfyui`).
+as image-skills does (`INPAINT=qwen COMFYUI_SERVICE=comfyui`).
 
 ## Ollama
 
