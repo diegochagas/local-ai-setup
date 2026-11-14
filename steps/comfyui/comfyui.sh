@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # ComfyUI, the local AI image models behind the AI tools of
-# GIMP (gimp-setup) and GIMPhoto, and of comic-skills: a
+# GIMP (gimp-setup) and GIMPhoto, and of image-skills: a
 # ComfyUI server serving open-weight image models on this
 # machine, with no accounts, credits or limits.
 #

@@ -15,7 +15,7 @@
 
 #
 # ComfyUI, the local AI models behind the AI tools of GIMP
-# (gimp-setup), GIMPhoto and comic-skills
+# (gimp-setup), GIMPhoto and image-skills
 #
 # Installed by the ComfyUI steps (steps/comfyui/), as a `comfyui`
 # systemd user service that GIMP and GIMPhoto start when they open
@@ -35,7 +35,7 @@ COMFYUI_DIR=""
 # Which model sets to download, comma separated:
 #
 #   qwen  - Qwen-Image-Edit-2511, ~22 GB. Best quality;
-#           what comic-skills uses to erase text over art.
+#           what image-skills uses to erase text over art.
 #   klein - FLUX.2 klein 4B, ~12 GB. Faster, lower quality;
 #           also generates images from text.
 #   sam   - SAM 2.1 large, ~450 MB. GIMP's Select > Object

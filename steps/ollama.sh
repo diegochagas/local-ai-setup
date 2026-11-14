@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Ollama, the local language-model server (used by
-# comic-skills' page descriptions, tvshow-skills' subtitle
+# image-skills' page descriptions, video-skills' subtitle
 # translation, games-extractor and Digivice), from its official installation
 # script. The script detects an
 # NVIDIA GPU and uses it when the driver is installed;

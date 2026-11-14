@@ -13,7 +13,7 @@
 #         GGUF + its Qwen2.5-VL text encoder, VAE and the
 #         4-step Lightning LoRA. ~22 GB. Instruction image
 #         editing that keeps characters consistent; used by
-#         comic-skills (INPAINT=qwen) to erase text over art.
+#         image-skills (INPAINT=qwen) to erase text over art.
 # klein - FLUX.2 klein 4B distilled (Apache 2.0) + its
 #         Qwen3-4B text encoder and VAE. ~12 GB. Three times
 #         faster than qwen, lower quality on detailed art.
